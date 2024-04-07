@@ -1,0 +1,2 @@
+# eofastapi
+Example of FastAPI
