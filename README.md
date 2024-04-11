@@ -1,5 +1,7 @@
 # eofastapi
 Example of FastAPI
+uvicorn main:app --reload
+
 
 # Project Structure
 
