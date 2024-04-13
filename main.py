@@ -13,6 +13,27 @@ class Item(BaseModel):
 
 app = FastAPI()
 
+# Create List of books
+BOOKS = [
+    {'tital': 'Tital One', 'author': 'author one', 'category': 'science'},
+    {'tital': 'Tital One', 'author': 'author one', 'category': 'science'},
+    {'tital': 'Tital One', 'author': 'author two', 'category': 'science'},
+    {'tital': 'Tital One', 'author': 'author three', 'category': 'math1'},
+    {'tital': 'Tital One', 'author': 'author four', 'category': 'math2'},
+]
+
+
+@app.get("/books")
+async def fist_api():
+    return BOOKS
+
+
+@app.get("/books/{book_total}")
+async def read_book(book_total: str):
+    for book in BOOKS:
+        if book.get('total').casefold() == book_total.casefold():
+            return book
+
 
 @app.get("/")
 async def root():
