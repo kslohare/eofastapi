@@ -1,0 +1,94 @@
+>>>>how_to_most_of_the_course
+1) Watch all the videos
+2) Take the excercises
+3) Search and Practise
+4) Ask Questions
+5) Talk with friends
+
+>>>python command
+python [-bBdEhiIOqsSuvVWx?] [-c command | -m module-name | script | - ] [args]
+where
+-m <module-name>
+Search sys.path for the named module and execute its contents as the __main__ module.
+
+>>>requirements.txt:
+Is a file that contains a list of packages or libraries needed to work on a project that can all be installed with the file. It provides a consistent environment and makes collaboration easier.
+
+>>>pip command
+python -m pip install [options] <requirement specifier> [package-index-options] ...
+python -m pip install [options] -r <requirements file> [package-index-options] ...
+where,
+-r, --requirement <file>
+Install from the given requirements file
+
+>>>Difference between pip freeze and pip list ?
+pip freeze is used to generate a list of packages and their specific versions installed in a virtual environment, whereas
+pip list displays a list of packages and their installation status.
+
+>>>virtual enviornent
+A Virtual environment is a Python Environment that is isolated from  those in other python environments.
+1) First create project folder sya fastapi
+
+2) Creation of virtual environments is done by executing the command venv:
+cd fastapi
+python -m venv /path/to/new/virtual/environment
+Example:
+python -m venv fastapivenv
+
+3) Command to activate virtual environment
+$ source <venv>/bin/activate
+source fastapivenv/bin/activate
+
+4) Verify what is installed till time
+pip list
+
+5) to deactivate virual envirnment
+deactivate
+
+
+>>>how to make python package- pip
+1) Generate requireents file
+pip freez - dont use it
+To find out to get only used package run below command
+pip3 installs pipreqs
+pipreqs . # This will search what package needs and which dependcy used.
+This will generated requirements.txt file
+OR
+pip3 freeze > requirements.txt
+
+2) setup.py file
+
+
+>>>pip install your script
+1) Create login credential at pypy site.
+2) Build the distribution using - python3 setup.py bdist_wheel
+This will create build, dist and .egg-info folders
+3)
+First, increase the version from file setup.py
+Second,update readme.md file under section ##history, the version and its updates details
+4) use twine - tool to upload package to pypy
+pip3 install twine
+python3 -m twine upload dist/* --skil-existin
+
+
+>>>stackedit.io for writin Readme.md
+
+>>>Deploying on cloud
+Check in code in git repository
+pip3 freeze > requirements.txt
+pip install -r requirements.txt
+uvicorn main:app --reload
+
+>>>fastapi - python web framework for builidng modern RESTFUL APIs.
+# Official documentation
+https://fastapi.tiangolo.com/
+
+
+
+
+
+
+
+
+
+
