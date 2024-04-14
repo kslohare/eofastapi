@@ -1,5 +1,5 @@
 from typing import Union
-from fastapi import FastAPI, File, UploadFile,Body
+from fastapi import FastAPI, File, UploadFile, Body
 from pydantic import BaseModel
 from typing_extensions import Annotated
 
@@ -39,10 +39,19 @@ async def read_book(book_tital: str):
 async def root():
     return {"message": "Hello World"}
 
+
 @app.post("/books/create_book")
-async def create_book(new_book=Body()):# Here Body() converts to new book
+async def create_book(new_book=Body()):  # Here Body() converts to new book
     BOOKS.append(new_book)
     return "Book has been added"
+
+
+@app.put("books/update_book")
+async def update_book(updated_book=Body()):
+    for i in range(len(BOOKS)):
+        if BOOKS[i].get('tital').casefold() == updated_book.get('tital').casefold():
+            BOOKS[i] = updated_book
+            return 'book is updated'
 
 
 @app.post("/items/")
