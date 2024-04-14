@@ -1,3 +1,11 @@
+
+------------------------------------------ Miscellenious ----------------------------------------------------------
+
+>>>pycharm
+# To setup Local interpreter
+In Pychar IDE, right bottom, click on Python Interpreter and then set from your virtual evironment instead of system one.
+
+
 >>>>how_to_most_of_the_course
 1) Watch all the videos
 2) Take the excercises
@@ -5,6 +13,8 @@
 4) Ask Questions
 5) Talk with friends
 
+
+------------------------------------------ Basic ----------------------------------------------------------
 >>>python command
 python [-bBdEhiIOqsSuvVWx?] [-c command | -m module-name | script | - ] [args]
 where
@@ -78,10 +88,135 @@ Check in code in git repository
 pip3 freeze > requirements.txt
 pip install -r requirements.txt
 uvicorn main:app --reload
+Where,
+main 		-	is main.py having fastAPI instalnce
+--reload   	-	Enable auto-reload.
+# Hit on browser for api end point calling and swagger doc
+http://127.0.0.1:8000/
+http://localhost:8000/docs
 
->>>fastapi - python web framework for builidng modern RESTFUL APIs.
+
+------------------------------------------ fastapi ----------------------------------------------------------
+Python web framework for builidng modern RESTFUL APIs.
 # Official documentation
 https://fastapi.tiangolo.com/
+
+# HTTP Request Methods
+CRUD	-	HTTP Request Methods
+Create	-	POST
+Read	-	GET
+Update	-	PUT
+Delete	-	DELETE
+
+# Path Parameters - are reqeust parameters that have been attached to the URL.
+Path parameters are variable elements of a URL that you use to identify a specific resource in a collection. This allows you to send an API call that refers to a specific resource, rather than a collection of resources. Where an endpoint accepts a path parameter, it is denoted in its URL between a pair of braces {}. For example, /users/{userId} indicates that the endpoint accepts a path parameter called userId. When you make an API call, you replace the braces and the placeholder inside the braces with the value you want to refer to.
+Example:If you want to refer to a user with a userId of "20", the request URL would be /users/20.
+-- Dynamic parameters - Order matterns
+
+# Query Parameters
+Query Parameters are reqeust parameters that have been attached after a "?".
+QP have name=value pairs
+Example:
+120.0.0.1:80000/books/?category=math
+QP can be used with path parameters
+
+
+# POST request Method
+- used to create data
+- POST can have body that has additional information that GET does not have
+- Components of a POST Request Method:
+
+1) URL/Endpoint: The URL (Uniform Resource Locator) or endpoint specifies the server location where the POST request is sent. It identifies the specific resource or action that the server should handle. It acts as a unique address for accessing a particular web page, service, or API endpoint.
+
+2) Request Method: The request method indicates the type of action being performed on the server. In the case of a POST request, it signifies that data is being submitted to the server to create or update a resource. Other common request methods include GET (retrieving data), PUT (updating data), and DELETE (removing data).
+
+3) Request Header: The request header contains additional information about the request. It includes metadata and instructions for the server, such as the content type being sent, character encoding, authentication credentials, and details related to caching, language preferences, or user agents.
+
+4) Request Body: The request body carries the actual data being sent in the POST request. It contains the payload or content that needs to be processed by the server. This can include form data, JSON, XML, or other structured data formats. The request body is where the relevant data is placed for the server to process and take appropriate actions.
+
+5) Response: The response is the server's reply to the client's request. It contains the result of the requested action, including status information, data from the server (if applicable), and additional metadata. The response allows the client to understand the outcome of the request and handle it accordingly.
+
+6) Content-Length: A header field that specifies the length or size of the request body in bytes. It helps the server know the size of the incoming data.
+
+7) Authentication: If the server requires authentication, the POST request may need to include credentials or tokens in the headers or body to authenticate the client making the request.
+
+Here's an example that includes all the components of a POST request in a single example:
+POST /api/users HTTP/1.1
+Host: api.example.com
+Content-Type: application/json
+Authorization: Bearer <access_token>
+User-Agent: MyClient/1.0
+Content-Length: 64
+
+{
+  "name": "John Doe",
+  "email": "johndoe@example.com",
+  "age": 30
+}
+
+In this example:
+The request method is POST.
+The request URI is /api/users.
+The HTTP version is HTTP/1.1.
+The Host header specifies the host or domain of the server (api.example.com in this case).
+The Content-Type header indicates that the request body is in JSON format.
+The Authorization header contains the access token for authentication.
+The User-Agent header identifies the client making the request.
+The Content-Length header specifies the length of the request body in bytes.
+The request body contains the user data in JSON format.
+These components together form a complete example of a POST request, which can be sent to the server to create a new user or perform other operations as per the API's specifications.
+
+
+# PUT request Method
+- Used to update data
+- PUT can have a body that has additional information (like POST) that GET does not have.
+
+>>>Data Validation
+# Pydantic is a powerful data validation and settings management library for Python, engineered to enhance the robustness and reliability of your codebase. From basic tasks, such as checking whether a variable is an integer, to more complex tasks, like ensuring highly-nested dictionary keys and values have the correct data types, Pydantic can handle just about any data validation scenario with minimal boilerplate code.
+
+
+
+
+>>>Exception Handling
+
+
+
+>>>>status code
+
+
+>>>>Swagger Configuratio
+
+
+>>>>Python Request Objects
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
