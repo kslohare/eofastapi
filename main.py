@@ -1,5 +1,5 @@
 from typing import Union
-from fastapi import FastAPI, File, UploadFile
+from fastapi import FastAPI, File, UploadFile,Body
 from pydantic import BaseModel
 from typing_extensions import Annotated
 
@@ -16,10 +16,10 @@ app = FastAPI()
 # Create List of books
 BOOKS = [
     {'tital': 'Tital One', 'author': 'author one', 'category': 'science'},
-    {'tital': 'Tital One', 'author': 'author one', 'category': 'science'},
-    {'tital': 'Tital One', 'author': 'author two', 'category': 'science'},
-    {'tital': 'Tital One', 'author': 'author three', 'category': 'math1'},
-    {'tital': 'Tital One', 'author': 'author four', 'category': 'math2'},
+    {'tital': 'Tital Two', 'author': 'author one', 'category': 'science'},
+    {'tital': 'Tital Three', 'author': 'author two', 'category': 'science'},
+    {'tital': 'Tital Four', 'author': 'author three', 'category': 'math1'},
+    {'tital': 'Tital Five', 'author': 'author four', 'category': 'math2'},
 ]
 
 
@@ -28,16 +28,21 @@ async def fist_api():
     return BOOKS
 
 
-@app.get("/books/{book_total}")
-async def read_book(book_total: str):
+@app.get("/books/{book_tital}")
+async def read_book(book_tital: str):
     for book in BOOKS:
-        if book.get('total').casefold() == book_total.casefold():
+        if book.get('tital').casefold() == book_tital.casefold():
             return book
 
 
 @app.get("/")
 async def root():
     return {"message": "Hello World"}
+
+@app.post("/books/create_book")
+async def create_book(new_book=Body()):# Here Body() converts to new book
+    BOOKS.append(new_book)
+    return "Book has been added"
 
 
 @app.post("/items/")
